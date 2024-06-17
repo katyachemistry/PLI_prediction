@@ -6,10 +6,11 @@ This project focuses on classifying interacting/non-interacting pairs of protein
 - [Limitations](#limitations)
 - [Getting Started](#getting-started)
 - [Parameters](#parameters)
+- [Data and model availability](#data-availability)
 - [Contributing](#contributing)
 
 ## Limitations
-The model is only available for proteins with single peptide chains. It should be also noted that the length of proteins used for training was no more than 1000 residues. 
+The model is only available for proteins with single peptide chains. It should be also noted that the length of proteins used for training was no more than 1000 residues. However, the prediction can be made for proteins of any length as embeddings with fixed shapes are used. 
 
 ## Getting Started
 
@@ -20,7 +21,7 @@ The model is only available for proteins with single peptide chains. It should b
 2. Make a copy of the notebook to your own Google Drive:
     - Click on `File` -> `Save a copy in Drive`.
 
-3. Follow the instructions within the notebooks to run the cells and train the model or predict possibilities of protein-ligand interactions.
+3. Follow the instructions within the notebooks to run the cells and train the model.
 
 - **Make a prediction**
 
@@ -60,6 +61,9 @@ The model, provided here for making predictions, uses ProtT5 protein embeddings 
 - `pair_size`: (int) Size of the pair input feature vector.
 - `msa_size`: (int) Size of the MSA input feature vector.
 - `molecule_size`: (int) Size of the molecule input feature vector.
+
+## Data and model availability
+Data and model can be found **[here](https://drive.google.com/drive/folders/1u9DwSNje2gX-N0QgxxFFHanw705gH29N?usp=sharing)**
 
 ## Contributing
 
