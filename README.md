@@ -1,32 +1,39 @@
-# Protein-Molecule Interaction Classification
+# Protein-Metabolite Interaction Classification
 
-This project focuses on classifying interacting/non-interacting pairs of proteins and molecules using simple neural network. The model, provided here for making predictions, uses ProtT5 protein embeddings and Morgan fingerprints of chemicals as input. 
-You can also obtain a model trained on other representations, like AlphaFold2 for proteins and MolecularTransformer for ligands (see notebook for training below). The project is implemented using PyTorch and PyTorch Lightning, and training experiments are tracked with Weights & Biases (W&B).
+This project focuses on classifying interacting/non-interacting pairs of proteins and small molecules using simple neural network and highly informative embeddings from pre-trained models as input. Those include **[ProtT5](https://github.com/agemagician/ProtTrans?tab=readme-ov-file)** and **[AlphaFold2](https://github.com/google-deepmind/alphafold)** representations of proteins, **[MolecularTransformer](https://github.com/mpcrlab/MolecularTransformerEmbeddings)** and Morgan fingerprints representations of chemicals. You can make a prediction or obtain a model trained on any of these representations (see notebooks below). The project is implemented using PyTorch and PyTorch Lightning, and training experiments are tracked with Weights & Biases (W&B).
 
 ## Table of Contents
+- [Limitations](#limitations)
 - [Getting Started](#getting-started)
-- [Notebooks](#notebooks)
 - [Parameters](#parameters)
 - [Contributing](#contributing)
 
 ## Limitations
-The model is only available for proteins with single peptide chains. It should be also noted that the length of proteins used for training did not exceed 1000 residues. 
+The model is only available for proteins with single peptide chains. It should be also noted that the length of proteins used for training was no more than 1000 residues. 
 
 ## Getting Started
 
-1. Open the provided Google Colab notebooks.
+- **Reproduce the experiment**
+
+1. Open the **[Reproduce the experiment](https://colab.research.google.com/drive/1iXF5kaBAN-kw2K2TBXxfaJqLqhdfexWK?usp=sharing)** notebook.
 
 2. Make a copy of the notebook to your own Google Drive:
     - Click on `File` -> `Save a copy in Drive`.
 
 3. Follow the instructions within the notebooks to run the cells and train the model or predict possibilities of protein-ligand interactions.
 
-## Notebooks
+- **Make a prediction**
 
-The project contains the following notebooks:
+The model, provided here for making predictions, uses ProtT5 protein embeddings and Morgan fingerprints of chemicals as input. 
 
-- **[Reproduce the train and test experiment with this notebook](https://colab.research.google.com/drive/1iXF5kaBAN-kw2K2TBXxfaJqLqhdfexWK?usp=sharing)**: This notebook is used to train the protein-molecule interaction classifier using ProtT5 embeddings and Morgan fingerprints or MolTr embeddings.
-- **[Predict interaction possibility on your data](path_to_your_notebook)**: This notebook is used to train the interaction classifier using AF data.
+1. Obtain protein embeddings using [embed_ProtT5.ipynb](https://colab.research.google.com/drive/1TUj-ayG3WO52n5N50S7KH9vtt6zRkdmj?usp=sharing#scrollTo=QMoeBQnUCK_E) from **[ProtTrans Github repository](https://github.com/agemagician/ProtTrans?tab=readme-ov-file)**. Set `per_residue = False`, `per_protein = True` and `sec_struct = False`. The output should have size of 1024.
+
+2. Open the **[Predict interactions](https://colab.research.google.com/drive/1qQVgUTXtOQ7zyH6bHB0X16tY1O6nPO94?usp=sharing)** notebook.
+
+3. Make a copy of the notebook to your own Google Drive:
+    - Click on `File` -> `Save a copy in Drive`.
+
+4. Follow the instructions within the notebooks to run the cells and train the model or predict possibilities of protein-ligand interactions.
 
 ## Parameters
 
@@ -43,11 +50,11 @@ The project contains the following notebooks:
 
 - `input_size_protein`: (int) Size of the input feature vector for proteins.
 - `input_size_molecule`: (int) Size of the input feature vector for molecules.
-- `fc1_layer_size_factor`: (int) Factor to reduce the size of the first fully connected layer.
-- `fc2_layer_size_factor`: (int) Factor to reduce the size of the second fully connected layer.
+- `fc1_layer_size_factor`: (int) Factor to reduce the size after the first fully connected layer.
+- `fc2_layer_size_factor`: (int) Factor to reduce the size after the second fully connected layer.
 - `dropout_rate`: (float) Dropout rate applied after each layer.
 
-### AF Model-Specific Parameters
+### AF2 Model-Specific Parameters
 
 - `single_size`: (int) Size of the single input feature vector.
 - `pair_size`: (int) Size of the pair input feature vector.
