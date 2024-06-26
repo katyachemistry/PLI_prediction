@@ -44,7 +44,7 @@ The model, provided here for making predictions, uses ProtT5 protein embeddings 
 
 ## Model Architecture
 
-We used a simple MLP classifier. After each layer batch normalization was used and ReLU activation function was applied.
+We used a simple MLP classifier. After each layer batch normalization and ReLU activation function was applied. To produce labels, sigmoid function was used.
 
 
 <img src="./Untitledneur.svg">
