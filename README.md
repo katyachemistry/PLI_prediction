@@ -46,6 +46,7 @@ The model, provided here for making predictions, uses ProtT5 protein embeddings 
 
 We used a simple MLP classifier. After each layer batch normalization was used and ReLU activation function was applied.
 
+
 <img src="./Untitledneur.svg">
 
 ## Parameters
