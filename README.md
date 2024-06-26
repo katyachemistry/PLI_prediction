@@ -14,7 +14,7 @@ The model is only available for proteins with single peptide chains. It should b
 
 ## Getting Started
 
-- **Reproduce the experiment**
+### **Reproduce the experiment**
 
 1. Open the **[Reproduce the experiment](https://colab.research.google.com/drive/1iXF5kaBAN-kw2K2TBXxfaJqLqhdfexWK?usp=sharing)** notebook.
 
@@ -23,7 +23,7 @@ The model is only available for proteins with single peptide chains. It should b
 
 3. Follow the instructions within the notebook to train the model.
 
-- **Make a prediction**
+### **Make a prediction**
 
 The model, provided here for making predictions, uses ProtT5 protein embeddings and Morgan fingerprints of chemicals as input. 
 
