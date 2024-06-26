@@ -2,6 +2,7 @@
 
 This project focuses on classifying interacting/non-interacting pairs of proteins and small molecules using simple neural network and highly informative embeddings from pre-trained models as input. Those include **[ProtT5](https://github.com/agemagician/ProtTrans?tab=readme-ov-file)** and **[AlphaFold2](https://github.com/google-deepmind/alphafold)** representations of proteins, **[MolecularTransformer](https://github.com/mpcrlab/MolecularTransformerEmbeddings)** and Morgan fingerprints representations of chemicals. You can make a prediction or obtain a model trained on any of these representations (see notebooks below). The project is implemented using PyTorch and PyTorch Lightning, and training experiments are tracked with Weights & Biases (W&B).
 
+
 ## Table of Contents
 - [Limitations](#limitations)
 - [Getting Started](#getting-started)
@@ -37,6 +38,13 @@ The model, provided here for making predictions, uses ProtT5 protein embeddings 
 4. Upload the h5-file with ProtT5 embedding to Google Colab in any convenient way.
 
 4. Follow the instructions within the notebook to predict possibility of protein-ligand interaction.
+
+## Model architecture
+
+We used a simple MLP classifier. After each layer batch normalization was used and ReLU activation function was applied.
+
+![arch](./Untitledneur.svg)
+<img src="./Untitledneur.svg">
 
 ## Parameters
 
