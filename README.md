@@ -6,9 +6,12 @@ This project focuses on classifying interacting/non-interacting pairs of protein
 ## Table of Contents
 - [Limitations](#limitations)
 - [Getting Started](#getting-started)
+- [Model Architecture](#model-architecture)
 - [Parameters](#parameters)
 - [Data and model availability](#data-availability)
 - [Contributing](#contributing)
+- [LICENSE](#license)
+
 
 ## Limitations
 The model is only available for proteins with single peptide chains. It should be also noted that the length of proteins used for training was no more than 1000 residues. However, the prediction can be made for proteins of any length as embeddings with fixed shapes are used. 
@@ -39,7 +42,7 @@ The model, provided here for making predictions, uses ProtT5 protein embeddings 
 
 4. Follow the instructions within the notebook to predict possibility of protein-ligand interaction.
 
-## Model architecture
+## Model Architecture
 
 We used a simple MLP classifier. After each layer batch normalization was used and ReLU activation function was applied.
 
@@ -77,3 +80,6 @@ Data and model can be found **[here](https://drive.google.com/drive/folders/1u9D
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
+
+## LICENSE
+The source code for the site is licensed under the MIT license, which you can find in the MIT-LICENSE.txt file.
