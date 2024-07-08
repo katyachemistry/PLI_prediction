@@ -31,16 +31,12 @@ The model is only available for proteins with single peptide chains. It should b
 
 The model, provided here for making predictions, uses ProtT5 protein embeddings and Morgan fingerprints of chemicals as input. 
 
-1. Obtain protein embedding using [embed_ProtT5.ipynb](https://colab.research.google.com/drive/1TUj-ayG3WO52n5N50S7KH9vtt6zRkdmj?usp=sharing#scrollTo=QMoeBQnUCK_E) from **[ProtTrans Github repository](https://github.com/agemagician/ProtTrans?tab=readme-ov-file)**. Set `per_residue = False`, `per_protein = True` and `sec_struct = False`. The output should have size of 1024. Download the resulting h5 file to use later.
+1. Open the **[Predict interactions](https://colab.research.google.com/drive/1qQVgUTXtOQ7zyH6bHB0X16tY1O6nPO94?usp=sharing)** notebook.
 
-2. Open the **[Predict interactions](https://colab.research.google.com/drive/1qQVgUTXtOQ7zyH6bHB0X16tY1O6nPO94?usp=sharing)** notebook.
-
-3. Make a copy of the notebook to your own Google Drive:
+2. Make a copy of the notebook to your own Google Drive:
     - Click on `File` -> `Save a copy in Drive`.
 
-4. Upload the h5-file with ProtT5 embedding to Google Colab in any convenient way.
-
-4. Follow the instructions within the notebook to predict possibility of protein-ligand interaction.
+3. Follow the instructions within the notebook to predict possibility of protein-ligand interaction. The notebook uses code from [embed_ProtT5.ipynb](https://colab.research.google.com/drive/1TUj-ayG3WO52n5N50S7KH9vtt6zRkdmj?usp=sharing#scrollTo=QMoeBQnUCK_E) from **[ProtTrans Github repository](https://github.com/agemagician/ProtTrans?tab=readme-ov-file)**. The parameters are as follows: `per_residue = False`, `per_protein = True` and `sec_struct = False`. The output array has size of 1024. 
 
 ## Model Architecture
 
