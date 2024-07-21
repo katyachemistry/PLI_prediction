@@ -31,7 +31,7 @@ The model is only available for proteins with single peptide chains. It should b
 
 The model, provided here for making predictions, uses ProtT5 protein embeddings and Morgan fingerprints of chemicals as input. 
 
-1. Open the **[Predict interactions](https://colab.research.google.com/drive/1qQVgUTXtOQ7zyH6bHB0X16tY1O6nPO94?usp=sharing)** notebook.
+1. Open the **[Make predictions]([https://colab.research.google.com/drive/1qQVgUTXtOQ7zyH6bHB0X16tY1O6nPO94?usp=sharing](https://colab.research.google.com/drive/1qQVgUTXtOQ7zyH6bHB0X16tY1O6nPO94?usp=sharing)** notebook.
 
 2. Make a copy of the notebook to your own Google Drive:
     - Click on `File` -> `Save a copy in Drive`.
