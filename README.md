@@ -91,6 +91,8 @@ To obtain the `docker` folder, clone the repository using Git and then navigate 
 
 ```cd PLI_prediction/docker```
 
+Get the dataframe.pkl **[here](https://drive.google.com/drive/folders/1u9DwSNje2gX-N0QgxxFFHanw705gH29N?usp=sharing)** and put it in the "docker" folder.
+
 Run the following command:
 
 ```docker build -t pli .```
@@ -108,7 +110,7 @@ After running the container, you can use it similarly to how you would in a note
 #### Example Commands
 **Training**
 
-If you want to reproduce the experiment, run the following, for example:
+If you want to reproduce the experiment, run the following:
 
 ```python reproduce_the_experiment.py --project my_project --protein-reps prott5```
 
@@ -157,7 +159,7 @@ Copy ID of the pli container you need to stop. Run:
 ```docker stop <container_id>```
 
 ## Data and model availability
-Data and model can be found **[here](https://drive.google.com/drive/folders/1u9DwSNje2gX-N0QgxxFFHanw705gH29N?usp=sharing)** or in "docker" directory. 
+Data and model can be found **[here](https://drive.google.com/drive/folders/1u9DwSNje2gX-N0QgxxFFHanw705gH29N?usp=sharing)**. 
 
 ## Contributing
 
