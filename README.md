@@ -77,20 +77,27 @@ You can also use Docker to run the project locally. This can be useful if you pr
 ### Prerequisites
 Docker must be installed on your local machine. If you are not familiar with docker or programming at all, do not worry! Here is a set of installation tutorials depending on your system:
 [Docker installation for Windows](https://www.youtube.com/watch?v=ZyBBv1JmnWQ)
+
 [Docker installation for Mac OS](https://www.youtube.com/watch?v=-EXlfSsP49A)
+
 [Docker installation for Linux](https://www.youtube.com/watch?v=J3nyufLvk1A)
 
 ### Building the Docker Image
 To obtain the `docker` folder, clone the repository using Git and then navigate to the directory:
 
 `git clone https://github.com/katyachemistry/PLI_prediction.git`
+
 `cd PLI_prediction/docker`
+
 Run the following command:
+
 `docker build -t pli .`
 
 ### Running the Docker Container
 Once the Docker image is built, you can run the container with the following command:
+
 `docker run -it --rm pli /bin/bash`
+
 This command will start the container and give you an interactive terminal. 
 
 #### Usage within Docker
@@ -126,8 +133,11 @@ Example usage for the second option:
 
 #### Stopping the Docker Container
 Open new terminal. Get a list of docker containers:
+
 `docker ps`
+
 Copy ID of the pli container you need to stop. Run:
+
 `docker stop <container_id>`
 
 ## Data and model availability
