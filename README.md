@@ -76,6 +76,7 @@ You can also use Docker to run the project locally. This can be useful if you pr
 
 ### Prerequisites
 Docker must be installed on your local machine. If you are not familiar with docker or programming at all, do not worry! Here is a set of installation tutorials depending on your system:
+
 [Docker installation for Windows](https://www.youtube.com/watch?v=ZyBBv1JmnWQ)
 
 [Docker installation for Mac OS](https://www.youtube.com/watch?v=-EXlfSsP49A)
@@ -105,6 +106,7 @@ After running the container, you can use it similarly to how you would in a note
 
 #### Example Commands
 **Training**
+
 If you want to reproduce the experiment, run the following, for example:
 
 ```python reproduce_the_experiment.py --project my_project --protein-reps prott5```
@@ -136,8 +138,7 @@ Predictions are made by the model trained on ProtT5 and Morgan fingerprints embe
 There are two ways for making predictions. You can obtain ProtT5 embedding beforehand and put it to the root directory (an example h5 file is given). Or you can make a seamless prediction, but consider that ProtT5 model of >2 GB will be downloaded. 
 Example usage for the first option:
 
-```python make_prediction.py --smiles "C(C(=O)O)C(CC(=O)O)(C(=O)O)O" --protein_name ppa --path_
-to_protT5_h5 "./ppa_prott5_embedding.h5"```
+`python make_prediction.py --smiles "C(C(=O)O)C(CC(=O)O)(C(=O)O)O" --protein_name ppa --path_to_protT5_h5 "./ppa_prott5_embedding.h5"`
 
 Example usage for the second option:
 
