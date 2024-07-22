@@ -71,8 +71,67 @@ We used a simple MLP classifier. After each layer batch normalization and ReLU a
 - `msa_size`: (int) Size of the MSA input feature vector.
 - `molecule_size`: (int) Size of the molecule input feature vector.
 
+## Using Docker for Local Setup
+You can also use Docker to run the project locally. This can be useful if you prefer not to use Google Colab or need a local environment for testing and development.
+
+### Prerequisites
+Docker must be installed on your local machine. If you are not familiar with docker or programming at all, do not worry! Here is a set of installation tutorials depending on your system:
+[Docker installation for Windows](https://www.youtube.com/watch?v=ZyBBv1JmnWQ)
+[Docker installation for Mac OS](https://www.youtube.com/watch?v=-EXlfSsP49A)
+[Docker installation for Linux](https://www.youtube.com/watch?v=J3nyufLvk1A)
+
+### Building the Docker Image
+To obtain the `docker` folder, clone the repository using Git and then navigate to the directory:
+
+`git clone https://github.com/katyachemistry/PLI_prediction.git`
+`cd PLI_prediction/docker`
+Run the following command:
+`docker build -t pli .`
+
+### Running the Docker Container
+Once the Docker image is built, you can run the container with the following command:
+`docker run -it --rm pli /bin/bash`
+This command will start the container and give you an interactive terminal. 
+
+#### Usage within Docker
+After running the container, you can use it similarly to how you would in a notebook environment. 
+
+#### Example Commands
+**Training**
+If you want to reproduce the experiment, run the following, for example:
+`python reproduce_the_experiment.py --project my_project --protein-reps prott5`
+
+--project PROJECT (required): Name of the project for W&B. In case you don't have an account, you can register
+--protein-reps PROTEIN_REPS (required): Type of representations for proteins. prott5 or af2
+--molecule-reps MOLECULE_REPS (optional): Type of representations for molecules. morgan for Morgan Fingerprints or moltr for MolecularTransformer (default morgan)
+--epochs EPOCHS (optional): Set the number of epochs for training. Default is 1
+--batch-size BATCH_SIZE (optional): Define the batch size for training. Default is 32.
+--learning-rate LEARNING_RATE (optional): Specify the learning rate for the optimizer. Default is 0.001.
+--weight-decay WEIGHT_DECAY (optional): Set the weight decay parameter for regularization. Default is 0.0001.
+--dropout-rate DROPOUT_RATE (optional): Define the dropout rate for regularization. Default is 0.01.
+--fc1-layer-size-factor FC1_LAYER_SIZE_FACTOR (optional): Set the size factor for the first fully connected layer. Default is 2.
+--fc2-layer-size-factor FC2_LAYER_SIZE_FACTOR (optional): Set the size factor for the second fully connected layer. Default is 2.
+
+Additionally, you can train the model using your own ProtTrans and AlphaFold2 embeddings, provided they have the same dimensionality (for AlphaFold2 reps it is achieved through averaging along axes). Ensure that these embeddings are stored in a way similar to the dataframe.pkl file included in this repository (column names and pickle filename should be the same). 
+
+**Making predictions**
+Predictions are made by the model trained on ProtT5 and Morgan fingerprints embeddings.
+There are two ways for making predictions. You can obtain ProtT5 embedding beforehand and put it to the root directory (an example h5 file is given). Or you can make a seamless prediction, but consider that ProtT5 model of >2 GB will be downloaded. 
+Example usage for the first option:
+`python make_prediction.py --smiles "C(C(=O)O)C(CC(=O)O)(C(=O)O)O" --protein_name ppa --path_
+to_protT5_h5 "./ppa_prott5_embedding.h5"`
+Example usage for the second option:
+`python make_prediction_seamless.py --smiles "C(C(=O)O)C(CC(=O)O)(C(=O)O)O" --sequence "MSALLRLLRTGAPAAACLRLGTSAGTGSRRAMALYHTEERGQPCSQNYRLFFKNVTGHYISPFHDIPLKVNSKEENGIPMKKARNDEYENLFNMIVEIPRWTNAKMEIATKEPMNPIKQYVKDGKLRYVANIFPYKGYIWNYGTLPQTWEDPHEKDKSTNCFGDNDPIDVCEIGSKILSCGEVIHVKILGILALIDEGETDWKLIAINANDPEASKFHDIDDVKKFKPGYLEATLNWFRLYKVPDGKPENQFAFNGEFKNKAFALEVIKSTHQCWKALLMKKCNGGAINCTNVQISDSPFRCTQEEARSLVESVSSSPNKESNEEEQVWHFLGK" --protein_name "ppa"`
+
+
+#### Stopping the Docker Container
+Open new terminal. Get a list of docker containers:
+`docker ps`
+Copy ID of the pli container you need to stop. Run:
+`docker stop <container_id>`
+
 ## Data and model availability
-Data and model can be found **[here](https://drive.google.com/drive/folders/1u9DwSNje2gX-N0QgxxFFHanw705gH29N?usp=sharing)**
+Data and model can be found **[here](https://drive.google.com/drive/folders/1u9DwSNje2gX-N0QgxxFFHanw705gH29N?usp=sharing)** or in "docker" directory. 
 
 ## Contributing
 
