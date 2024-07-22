@@ -7,6 +7,7 @@ This project focuses on classifying interacting/non-interacting pairs of protein
 - [Limitations](#limitations)
 - [Getting Started](#getting-started)
 - [Model Architecture](#model-architecture)
+- [Using Docker for Local Setup](#using-Docker-for-Local-Setup)
 - [Parameters](#parameters)
 - [Data and model availability](#data-availability)
 - [Contributing](#contributing)
@@ -75,7 +76,7 @@ We used a simple MLP classifier. After each layer batch normalization and ReLU a
 You can also use Docker to run the project locally. This can be useful if you prefer not to use Google Colab or need a local environment for testing and development.
 
 ### Prerequisites
-Docker must be installed on your local machine. If you are not familiar with docker or programming at all, do not worry! Here is a set of installation tutorials depending on your system:
+Docker must be installed on your local machine. If you are not familiar with docker, here is a set of installation tutorials depending on your system:
 
 [Docker installation for Windows](https://www.youtube.com/watch?v=ZyBBv1JmnWQ)
 
