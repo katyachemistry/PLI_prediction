@@ -85,18 +85,18 @@ Docker must be installed on your local machine. If you are not familiar with doc
 ### Building the Docker Image
 To obtain the `docker` folder, clone the repository using Git and then navigate to the directory:
 
-`git clone https://github.com/katyachemistry/PLI_prediction.git`
+```git clone https://github.com/katyachemistry/PLI_prediction.git```
 
-`cd PLI_prediction/docker`
+```cd PLI_prediction/docker```
 
 Run the following command:
 
-`docker build -t pli .`
+```docker build -t pli .```
 
 ### Running the Docker Container
 Once the Docker image is built, you can run the container with the following command:
 
-`docker run -it --rm pli /bin/bash`
+```docker run -it --rm pli /bin/bash```
 
 This command will start the container and give you an interactive terminal. 
 
@@ -107,7 +107,7 @@ After running the container, you can use it similarly to how you would in a note
 **Training**
 If you want to reproduce the experiment, run the following, for example:
 
-`python reproduce_the_experiment.py --project my_project --protein-reps prott5`
+```python reproduce_the_experiment.py --project my_project --protein-reps prott5```
 
 --project PROJECT (required): Name of the project for W&B. In case you don't have an account, you can register
 
@@ -136,22 +136,22 @@ Predictions are made by the model trained on ProtT5 and Morgan fingerprints embe
 There are two ways for making predictions. You can obtain ProtT5 embedding beforehand and put it to the root directory (an example h5 file is given). Or you can make a seamless prediction, but consider that ProtT5 model of >2 GB will be downloaded. 
 Example usage for the first option:
 
-`python make_prediction.py --smiles "C(C(=O)O)C(CC(=O)O)(C(=O)O)O" --protein_name ppa --path_
-to_protT5_h5 "./ppa_prott5_embedding.h5"`
+```python make_prediction.py --smiles "C(C(=O)O)C(CC(=O)O)(C(=O)O)O" --protein_name ppa --path_
+to_protT5_h5 "./ppa_prott5_embedding.h5"```
 
 Example usage for the second option:
 
-`python make_prediction_seamless.py --smiles "C(C(=O)O)C(CC(=O)O)(C(=O)O)O" --sequence "MSALLRLLRTGAPAAACLRLGTSAGTGSRRAMALYHTEERGQPCSQNYRLFFKNVTGHYISPFHDIPLKVNSKEENGIPMKKARNDEYENLFNMIVEIPRWTNAKMEIATKEPMNPIKQYVKDGKLRYVANIFPYKGYIWNYGTLPQTWEDPHEKDKSTNCFGDNDPIDVCEIGSKILSCGEVIHVKILGILALIDEGETDWKLIAINANDPEASKFHDIDDVKKFKPGYLEATLNWFRLYKVPDGKPENQFAFNGEFKNKAFALEVIKSTHQCWKALLMKKCNGGAINCTNVQISDSPFRCTQEEARSLVESVSSSPNKESNEEEQVWHFLGK" --protein_name "ppa"`
+```python make_prediction_seamless.py --smiles "C(C(=O)O)C(CC(=O)O)(C(=O)O)O" --sequence "MSALLRLLRTGAPAAACLRLGTSAGTGSRRAMALYHTEERGQPCSQNYRLFFKNVTGHYISPFHDIPLKVNSKEENGIPMKKARNDEYENLFNMIVEIPRWTNAKMEIATKEPMNPIKQYVKDGKLRYVANIFPYKGYIWNYGTLPQTWEDPHEKDKSTNCFGDNDPIDVCEIGSKILSCGEVIHVKILGILALIDEGETDWKLIAINANDPEASKFHDIDDVKKFKPGYLEATLNWFRLYKVPDGKPENQFAFNGEFKNKAFALEVIKSTHQCWKALLMKKCNGGAINCTNVQISDSPFRCTQEEARSLVESVSSSPNKESNEEEQVWHFLGK" --protein_name "ppa"```
 
 
 #### Stopping the Docker Container
 Open new terminal. Get a list of docker containers:
 
-`docker ps`
+```docker ps```
 
 Copy ID of the pli container you need to stop. Run:
 
-`docker stop <container_id>`
+```docker stop <container_id>```
 
 ## Data and model availability
 Data and model can be found **[here](https://drive.google.com/drive/folders/1u9DwSNje2gX-N0QgxxFFHanw705gH29N?usp=sharing)** or in "docker" directory. 
