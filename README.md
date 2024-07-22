@@ -111,29 +111,30 @@ If you want to reproduce the experiment, run the following, for example:
 
 ```python reproduce_the_experiment.py --project my_project --protein-reps prott5```
 
---project PROJECT (required): Name of the project for W&B. In case you don't have an account, you can register
+--project (required): Name of the project for W&B. In case you don't have an account, you can register
 
 --protein-reps PROTEIN_REPS (required): Type of representations for proteins. prott5 or af2
 
---molecule-reps MOLECULE_REPS (optional): Type of representations for molecules. morgan for Morgan Fingerprints or moltr for MolecularTransformer (default morgan)
+--molecule-reps (optional): Type of representations for molecules. morgan for Morgan Fingerprints or moltr for MolecularTransformer (default morgan)
 
---epochs EPOCHS (optional): Set the number of epochs for training. Default is 1
+--epochs (optional): Set the number of epochs for training. Default is 1
 
---batch-size BATCH_SIZE (optional): Define the batch size for training. Default is 32.
+--batch-size (optional): Define the batch size for training. Default is 32.
 
---learning-rate LEARNING_RATE (optional): Specify the learning rate for the optimizer. Default is 0.001.
+--learning-rate (optional): Specify the learning rate for the optimizer. Default is 0.001.
 
---weight-decay WEIGHT_DECAY (optional): Set the weight decay parameter for regularization. Default is 0.0001.
+--weight-decay (optional): Set the weight decay parameter for regularization. Default is 0.0001.
 
---dropout-rate DROPOUT_RATE (optional): Define the dropout rate for regularization. Default is 0.01.
+--dropout-rate (optional): Define the dropout rate for regularization. Default is 0.01.
 
---fc1-layer-size-factor FC1_LAYER_SIZE_FACTOR (optional): Set the size factor for the first fully connected layer. Default is 2.
+--fc1-layer-size-factor (optional): Set the size factor for the first fully connected layer. Default is 2.
 
---fc2-layer-size-factor FC2_LAYER_SIZE_FACTOR (optional): Set the size factor for the second fully connected layer. Default is 2.
+--fc2-layer-size-factor (optional): Set the size factor for the second fully connected layer. Default is 2.
 
 Additionally, you can train the model using your own ProtTrans and AlphaFold2 embeddings, provided they have the same dimensionality (for AlphaFold2 reps it is achieved through averaging along axes). Ensure that these embeddings are stored in a way similar to the dataframe.pkl file included in this repository (column names and pickle filename should be the same). 
 
 **Making predictions**
+
 Predictions are made by the model trained on ProtT5 and Morgan fingerprints embeddings.
 There are two ways for making predictions. You can obtain ProtT5 embedding beforehand and put it to the root directory (an example h5 file is given). Or you can make a seamless prediction, but consider that ProtT5 model of >2 GB will be downloaded. 
 Example usage for the first option:
